@@ -1,0 +1,12 @@
+digraph _logic_adminProp {
+rankdir=LR;
+node [shape = circle]; create_alert delete_alerts start;
+node [shape = point]; _s_s;
+_s_s -> start;
+delete_alerts -> delete_alerts [ label = "(1) deleteAlerts\\alertCreated == false \\alertsDeleted = true ; "];
+delete_alerts -> create_alert [ label = "(2) createAlert\\\\alertsDeleted = false ; alertCreated = true ; "];
+start -> create_alert [ label = "(1) createAlert\\alertsDeleted == false \\alertCreated = true ; "];
+start -> delete_alerts [ label = "(2) deleteAlerts\\alertCreated == false \\alertsDeleted = true ; "];
+create_alert -> create_alert [ label = "(1) createAlert\\alertsDeleted == false \\alertCreated = true ; "];
+create_alert -> delete_alerts [ label = "(2) deleteAlerts\\\\alertCreated = false ; alertsDeleted = true ; "];
+}

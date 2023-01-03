@@ -1,0 +1,37 @@
+GLOBAL {
+	VARIABLES{
+		boolean loggedIn = false;
+		boolean viewingAlerts = false;
+	}
+	EVENTS{
+		goToLogin() = {*.goToLogin()}
+		invalidLogin() = {*.invalidLogin()}
+		validLogin() = {*.validLogin()}
+		navigateScreens() = {*.navigateScreens()}
+		viewingAlerts() = {*.viewingAlerts()}
+		logOut() = {*.logOut()}
+	}
+	PROPERTY userProp {
+		STATES{
+			NORMAL{
+				login_screen
+				my_alerts
+			}
+			STARTING{
+				home_screen
+			}
+		}
+		TRANSITIONS{
+			home_screen -> login_screen[goToLogin\loggedIn == false]
+			login_screen -> login_screen[invalidLogin\\loggedIn = false;]
+			login_screen -> my_alerts[validLogin\\loggedIn = true;viewingAlerts = true;]
+			my_alerts -> my_alerts[viewingAlerts\loggedIn == true\viewingAlerts = true;]
+			home_screen -> my_alerts[viewingAlerts\loggedIn == true\viewingAlerts = true;]
+			home_screen -> home_screen[navigateScreens]
+			login_screen -> home_screen[navigateScreens]
+			my_alerts -> home_screen[navigateScreens\loggedIn == true\viewingAlerts = false;]
+			my_alerts -> home_screen[logOut\\loggedIn = false; viewingAlerts = false;]
+			home_screen -> home_screen[logOut\viewingAlerts == false\loggedIn = false;]	
+		}
+	}
+}

@@ -1,0 +1,14 @@
+[userProp]AUTOMATON::> userProp() STATE::>home_screen
+[userProp]MOVED ON METHODCALL: void main.Runner.goToLogin() TO STATE::> login_screen
+[userProp]AUTOMATON::> userProp() STATE::>login_screen
+[userProp]MOVED ON METHODCALL: void main.Runner.invalidLogin() TO STATE::> login_screen
+[userProp]AUTOMATON::> userProp() STATE::>login_screen
+[userProp]MOVED ON METHODCALL: void main.Runner.validLogin() TO STATE::> my_alerts
+[userProp]AUTOMATON::> userProp() STATE::>my_alerts
+[userProp]MOVED ON METHODCALL: void main.Runner.viewingAlerts() TO STATE::> my_alerts
+[userProp]AUTOMATON::> userProp() STATE::>my_alerts
+[userProp]MOVED ON METHODCALL: void main.Runner.viewingAlerts() TO STATE::> my_alerts
+[userProp]AUTOMATON::> userProp() STATE::>my_alerts
+[userProp]MOVED ON METHODCALL: void main.Runner.navigateScreens() TO STATE::> home_screen
+[userProp]AUTOMATON::> userProp() STATE::>home_screen
+[userProp]MOVED ON METHODCALL: void main.Runner.logOut() TO STATE::> home_screen

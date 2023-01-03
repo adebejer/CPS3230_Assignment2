@@ -1,0 +1,10 @@
+[adminProp]AUTOMATON::> adminProp() STATE::>start
+[adminProp]MOVED ON METHODCALL: void main.Runner.createAlert() TO STATE::> create_alert
+[adminProp]AUTOMATON::> adminProp() STATE::>create_alert
+[adminProp]MOVED ON METHODCALL: void main.Runner.createAlert() TO STATE::> create_alert
+[adminProp]AUTOMATON::> adminProp() STATE::>create_alert
+[adminProp]MOVED ON METHODCALL: void main.Runner.createAlert() TO STATE::> create_alert
+[adminProp]AUTOMATON::> adminProp() STATE::>create_alert
+[adminProp]MOVED ON METHODCALL: void main.Runner.deleteAlerts() TO STATE::> delete_alerts
+[adminProp]AUTOMATON::> adminProp() STATE::>delete_alerts
+[adminProp]MOVED ON METHODCALL: void main.Runner.createAlert() TO STATE::> create_alert

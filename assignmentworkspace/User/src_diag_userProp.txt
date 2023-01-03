@@ -1,0 +1,16 @@
+digraph _logic_userProp {
+rankdir=LR;
+node [shape = circle]; login_screen my_alerts home_screen;
+node [shape = point]; _s_s;
+_s_s -> home_screen;
+login_screen -> login_screen [ label = "(1) invalidLogin\\\\loggedIn = false ; "];
+login_screen -> my_alerts [ label = "(2) validLogin\\\\loggedIn = true ; viewingAlerts = true ; "];
+login_screen -> home_screen [ label = "(3) navigateScreens"];
+my_alerts -> my_alerts [ label = "(1) viewingAlerts\\loggedIn == true \\viewingAlerts = true ; "];
+my_alerts -> home_screen [ label = "(2) navigateScreens\\loggedIn == true \\viewingAlerts = false ; "];
+my_alerts -> home_screen [ label = "(3) logOut\\\\loggedIn = false ; viewingAlerts = false ; "];
+home_screen -> login_screen [ label = "(1) goToLogin\\loggedIn == false "];
+home_screen -> my_alerts [ label = "(2) viewingAlerts\\loggedIn == true \\viewingAlerts = true ; "];
+home_screen -> home_screen [ label = "(3) navigateScreens"];
+home_screen -> home_screen [ label = "(4) logOut\\viewingAlerts == false \\loggedIn = false ; "];
+}

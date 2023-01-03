@@ -1,0 +1,34 @@
+GLOBAL {
+	
+	VARIABLES{
+		boolean alertCreated = false;
+		boolean alertsDeleted = false;
+	}
+	
+	EVENTS{
+		createAlert() = {*.createAlert()}
+		deleteAlerts() = {*.deleteAlerts()}
+	}
+	
+	PROPERTY adminProp {
+		STATES{
+			NORMAL{
+				create_alert
+				delete_alerts
+			}
+			STARTING{
+				start
+			}
+		}
+		
+		TRANSITIONS{
+			start -> create_alert[createAlert\alertsDeleted == false\alertCreated = true;]
+			start -> delete_alerts[deleteAlerts\alertCreated == false\alertsDeleted = true;]
+			create_alert -> create_alert[createAlert\alertsDeleted == false\alertCreated = true;]
+			delete_alerts -> delete_alerts[deleteAlerts\alertCreated == false\alertsDeleted = true;]
+			create_alert -> delete_alerts[deleteAlerts\\alertCreated = false;alertsDeleted = true;]
+			delete_alerts -> create_alert[createAlert\\alertsDeleted = false;alertCreated = true;]
+			
+		}
+	}
+}
